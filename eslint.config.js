@@ -7,7 +7,7 @@ import prettierPlugin from 'eslint-plugin-prettier'; // Import Prettier plugin
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    files: ['**/*.{ts,tsx}'],
     plugins: {
       prettier: prettierPlugin,
     },
