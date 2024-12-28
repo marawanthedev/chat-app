@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet, useRoutes } from 'react-router-dom';
 import { ErrorBoundary } from './components';
+import { LoadingScreen } from './pages';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Chat = React.lazy(() => import('./pages/Chat'));
@@ -21,7 +22,7 @@ function Routes() {
         {
           path: '/',
           element: (
-            <React.Suspense fallback={<div>Loading...</div>}>
+            <React.Suspense fallback={<LoadingScreen />}>
               <Home />
             </React.Suspense>
           ),
@@ -29,7 +30,7 @@ function Routes() {
         {
           path: '/conversation',
           element: (
-            <React.Suspense fallback={<div>Loading...</div>}>
+            <React.Suspense fallback={<LoadingScreen />}>
               <Chat />
             </React.Suspense>
           ),

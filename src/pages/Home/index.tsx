@@ -15,7 +15,7 @@ const Home = () => {
     'experiment/web/list-conversations.json',
   );
 
-  if (data !== null && !data?.conversations) {
+  if (data !== null && !data.conversations) {
     throw new Error('Failed to load conversations');
   }
 

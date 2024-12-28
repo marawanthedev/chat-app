@@ -21,7 +21,7 @@ export const HeaderSection = ({ contact }: { contact?: ChatContact }) => {
 
   return (
     <div
-      className={`flex items-center justify-between p-3 bg-white shadow-md rounded-t-lg`}
+      className={`flex items-center justify-between p-3 bg-white shadow-md rounded-t-lg h-[70px] `}
     >
       <div className="cursor-pointer" onClick={() => navigate(-1)}>
         <BackIcon color="#007AFF" />
