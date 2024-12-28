@@ -7,7 +7,7 @@ import { Loader } from '../../../../components';
 export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
   if (!messages) {
     return (
-      <div className="flex-1 flex items-center justify center overflow-y-auto bg-cover p-4 space-y-3  bg-[url('/assets/wa-bg.png')]">
+      <div className="flex-1 flex items-center justify center overflow-y-auto bg-cover p-4 space-y-3  bg-[url('src/assets/wa-bg.png')]">
         <Loader />
       </div>
     );
@@ -22,7 +22,7 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
   }
 
   return (
-    <div className="flex-1 overflow-y-auto bg-cover p-4 space-y-3  bg-[url('/assets/wa-bg.png')]">
+    <div className="flex-1 overflow-y-auto bg-cover p-4 space-y-3  bg-[url('src/assets/wa-bg.png')]">
       {/* only show when there is actual messages , this could be derived from earliest message, and we could group messages into day based and put a label on top of each one that includes date details */}
       <p className="text-center text-xs text-gray-500">Fri, Jul 26</p>
 

@@ -10,7 +10,7 @@ export const Conversations = ({
   conversations?: Conversation[];
 }) => {
   return (
-    <div className="px-4 pb-10 flex-1 overflow-y-scroll">
+    <div className="px-4 pb-14 flex-1 overflow-y-scroll">
       {conversations?.map((conversation, index) => {
         const { delivered, lastMessageAt, name, read, type, audio, text } =
           conversation;
@@ -20,7 +20,7 @@ export const Conversations = ({
         );
 
         const avatarIndex = (index % 5) + 1;
-        const avatarSrc = `assets/UserAvatar/user-${avatarIndex}.png`;
+        const avatarSrc = `src/assets/UserAvatar/user-${avatarIndex}.png`;
 
         return (
           <Link

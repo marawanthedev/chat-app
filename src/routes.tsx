@@ -1,7 +1,9 @@
 import React from 'react';
-import { Outlet, useRoutes } from 'react-router-dom';
+import { Outlet, useLocation, useRoutes } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { ErrorBoundary } from './components';
 import { LoadingScreen } from './pages';
+import './transitions.css';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Chat = React.lazy(() => import('./pages/Chat'));
@@ -14,7 +16,9 @@ function SharedErrorBoundaryWrapper() {
   );
 }
 
-function Routes() {
+function AnimatedRoutes() {
+  const location = useLocation();
+
   const routes = useRoutes([
     {
       element: <SharedErrorBoundaryWrapper />,
@@ -47,7 +51,17 @@ function Routes() {
     },
   ]);
 
-  return routes;
+  return (
+    <TransitionGroup>
+      <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
+        <div>{routes}</div>
+      </CSSTransition>
+    </TransitionGroup>
+  );
+}
+
+function Routes() {
+  return <AnimatedRoutes />;
 }
 
 export default Routes;
