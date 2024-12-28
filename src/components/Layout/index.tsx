@@ -14,21 +14,11 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex justify-center items-center min-h-screen">
-      {/* Layout for iPhone SE 1st/2nd generation */}
+      {/* Layout for iPhone SE 1st/2nd/3rd generation and other phones  */}
       <div
-        className="w-full max-w-[320px] h-[568px] 
+        className="w-full w-full h-full
           min-[320px]:block max-[320px]:block 
-          min-[321px]:hidden sm:hidden lg:hidden xl:hidden"
-      >
-        <div className="p-4 rounded-lg shadow-lg overflow-x-hidden h-full">
-          {children}
-        </div>
-      </div>
-
-      {/* Layout for iPhone SE 3rd generation */}
-      <div
-        className="w-full max-w-[375px] h-[667px] 
-          max-[375px]:block min-[376px]:hidden sm:hidden lg:hidden xl:hidden"
+          sm:hidden lg:hidden xl:hidden"
       >
         <div className="p-4 rounded-lg shadow-lg overflow-x-hidden h-full">
           {children}
@@ -36,8 +26,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Layout for other devices */}
-      <div className="hidden sm:block lg:block xl:block w-full max-w-[414px] sm:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] h-full p-4 rounded-lg shadow-lg overflow-x-hidden">
-        {/* This layout will be applied to other larger devices */}
+      <div className="hidden sm:block lg:block xl:block w-full max-w-[414px] sm:max-w-[768px] lg:max-w-[1024px] xl:w-[1000px] h-full p-4 rounded-lg shadow-lg overflow-x-hidden">
         {children}
       </div>
     </div>
