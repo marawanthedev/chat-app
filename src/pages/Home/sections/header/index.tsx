@@ -10,12 +10,15 @@ type ButtonProps = {
 };
 
 export const Header = () => {
-  const buttons: ButtonProps[] = [
+  const leftGroupButtons: ButtonProps[] = [
     {
       Icon: DotsIcon,
       ariaLabel: 'More options',
       bgColor: 'bg-gray-200',
     },
+  ];
+
+  const rightGroupButtons: ButtonProps[] = [
     {
       Icon: CameraIcon,
       ariaLabel: 'Open camera',
@@ -32,7 +35,19 @@ export const Header = () => {
   return (
     <header className="flex justify-between items-center px-4 py-2 bg-white">
       <div className="flex space-x-2">
-        {buttons.map((button, index) => (
+        {leftGroupButtons.map((button, index) => (
+          <button
+            key={index}
+            className={`rounded-full p-2 ${button.bgColor}`}
+            aria-label={button.ariaLabel}
+          >
+            <button.Icon color={button.color} />
+          </button>
+        ))}
+      </div>
+
+      <div className="flex space-x-2">
+        {rightGroupButtons.map((button, index) => (
           <button
             key={index}
             className={`rounded-full p-2 ${button.bgColor}`}
