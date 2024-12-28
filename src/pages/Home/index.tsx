@@ -1,6 +1,7 @@
 // Home.tsx
 import React from 'react';
 import { Layout } from '../../components';
+import { ChatList, Filters, FloatingFooter, Header, Search } from './sections';
 
 const Home = () => {
   const conversations = [
@@ -12,7 +13,18 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="bg-black w-full h-full"></div>
+      <div className="flex flex-col min-h-screen bg-gray-100">
+        {/* Header */}
+        <Header />
+        {/* Search */}
+        <Search />
+        {/* Filters */}
+        <Filters />
+        {/* Chat List */}
+        <ChatList />
+        {/* Footer Navigation */}
+        <FloatingFooter />
+      </div>
     </Layout>
   );
 };
