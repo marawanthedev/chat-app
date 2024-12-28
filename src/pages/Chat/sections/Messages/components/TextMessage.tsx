@@ -16,11 +16,13 @@ export const TextMessage = ({
   read,
   color,
 }: TextMessageProps) => {
+  console.log({ color })
   return (
     <div
-      className={`flex gap-x-4 p-2 border-box justify-between items-end rounded bg-[${color}]`}
+      className={`flex gap-x-4 p-2 border-box justify-between items-end rounded`}
       role="region"
       aria-labelledby="text-message"
+      style={{ backgroundColor: `${color}` }}
     >
       <span id="text-message" className="text-base" aria-live="polite">
         {text}

@@ -21,9 +21,10 @@ export const PhotoMessage = ({
 
   return (
     <div
-      className={`flex flex-col gap-y-2 p-2 border-box justify-between rounded bg-[${color}]`}
+      className={`flex flex-col gap-y-2 p-2 border-box justify-between rounded`}
       role="region"
       aria-labelledby="photo-message"
+      style={{ backgroundColor: `${color}` }}
     >
       <div
         className={`flex items-center px-2 rounded w-[95%] h-[45px] gap-x-2`}

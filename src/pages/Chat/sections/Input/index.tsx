@@ -8,7 +8,7 @@ import {
 
 export const InputSection = () => {
   return (
-    <div className="flex items-center justify-between space-x-3 p-3 bg-white shadow-md rounded-b-lg text-[#007AFF] w-full">
+    <div className="flex items-center justify-between space-x-3 p-3 bg-white shadow-md rounded-b-lg text-[#007AFF] w-full fixed bottom-0 h-[70px]">
       <span aria-label="Add Attachment">
         <PlusIcon className="w-5 h-5" />
       </span>
