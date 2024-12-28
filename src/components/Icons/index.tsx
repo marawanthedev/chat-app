@@ -10,3 +10,7 @@ export * from './Read';
 export * from './Search';
 export * from './Status';
 export * from './Settings';
+export * from './Back';
+export * from './Video';
+export * from './Stickers';
+export * from './OutlinedCamera';

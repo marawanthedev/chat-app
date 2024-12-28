@@ -2,6 +2,7 @@ import React from 'react';
 import { Conversation } from '../../../../types';
 import { TextMessage, AudioMessage, PhotoMessage } from './components';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 export const Conversations = ({
   conversations,
@@ -22,10 +23,14 @@ export const Conversations = ({
         const avatarSrc = `assets/UserAvatar/user-${avatarIndex}.png`;
 
         return (
-          <div key={index} className="flex items-start justify-between py-1.5 ">
+          <Link
+            to="/conversation"
+            key={index}
+            className="flex items-start justify-between py-1.5 cursor-pointer"
+          >
             <div className="flex items-start space-x-3">
               <div
-                className="w-12 h-12 rounded-full bg-cover bg-center "
+                className="w-12 h-12 rounded-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${avatarSrc})` }}
               />
               <div>
@@ -40,7 +45,7 @@ export const Conversations = ({
             <div className="text-sm text-gray-500">
               {formattedLastMessageAt}
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

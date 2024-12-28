@@ -3,7 +3,7 @@ import { Outlet, useRoutes } from 'react-router-dom';
 import { ErrorBoundary } from './components';
 
 const Home = React.lazy(() => import('./pages/Home'));
-const Conversation = React.lazy(() => import('./pages/Conversation'));
+const Chat = React.lazy(() => import('./pages/Chat'));
 
 function SharedErrorBoundaryWrapper() {
   return (
@@ -30,7 +30,7 @@ function Routes() {
           path: '/conversation',
           element: (
             <React.Suspense fallback={<div>Loading...</div>}>
-              <Conversation />
+              <Chat />
             </React.Suspense>
           ),
         },
