@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES2020", // Specify ECMAScript target version
-    "module": "CommonJS", // Specify module code generation method
+    "module": "ES2020", // or "ESNext" or "NodeNext"
+    "target": "ES2020", // or you can target a newer version like ESNext
+    "moduleResolution": "node",
     "strict": true, // Enable all strict type-checking options
     "esModuleInterop": true, // Allow default imports from non-ES modules
     "skipLibCheck": true, // Skip type checking of declaration files

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconProps } from '../../types';
 
-export const ReadIcon: React.FC<IconProps> = ({
+export const DoubleCheckIcon: React.FC<IconProps> = ({
   color = 'currentColor',
   strokeWidth = 2,
   className = '',

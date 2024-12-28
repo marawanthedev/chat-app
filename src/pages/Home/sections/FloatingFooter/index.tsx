@@ -25,7 +25,7 @@ const FloatingFooterActionButton = ({
       className={`text-gray-500 flex flex-col justify-between items-center ${className}`}
       aria-label={ariaLabel}
     >
-      <span className="w-8 h-8 flex justify-center items-center">
+      <span className="w-6 h-6 flex justify-center items-center">
         <Icon />
       </span>
       <p>{text}</p>
@@ -64,7 +64,7 @@ export const FloatingFooter = () => {
 
   return (
     <footer
-      className={`flex justify-between items-center py-3 bg-white shadow w-screen fixed bottom-0 left-0 border-t border-gray-300 ${zIndex.floatingActionButton} px-4 overflow-x-hidden`}
+      className={`flex justify-between items-center py-1 bg-white shadow w-screen fixed bottom-0 left-0 border-t border-gray-300 ${zIndex.floatingActionButton} px-4 overflow-x-hidden`}
     >
       {buttons.map((button, index) => (
         <FloatingFooterActionButton

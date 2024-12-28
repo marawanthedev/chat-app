@@ -2,14 +2,16 @@
 import React from 'react';
 import { Layout } from '../../components';
 import { ChatList, Filters, FloatingFooter, Header, Search } from './sections';
-
+import { useFetchData } from '../../hooks';
+import { ConversationListResponse } from '../../types';
 const Home = () => {
-  const conversations = [
-    { id: 1, name: 'John Doe', lastMessage: 'Hey, how are you?' },
-    { id: 2, name: 'Jane Smith', lastMessage: 'See you tomorrow!' },
-    { id: 3, name: 'Bob Johnson', lastMessage: 'Lets' },
-    // Add more conversations here
-  ];
+  const { data } = useFetchData<ConversationListResponse>(
+    'experiment/web/list-conversations.json',
+  );
+
+  if (data !== null && !data?.conversations) {
+    throw new Error('Failed to load conversations');
+  }
 
   return (
     <Layout>
@@ -21,7 +23,7 @@ const Home = () => {
         {/* Filters */}
         <Filters />
         {/* Chat List */}
-        <ChatList />
+        <ChatList conversations={data?.conversations} />
         {/* Footer Navigation */}
         <FloatingFooter />
       </div>

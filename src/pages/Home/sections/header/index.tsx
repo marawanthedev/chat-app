@@ -33,7 +33,7 @@ export const Header = () => {
   ];
 
   return (
-    <header className="flex justify-between items-center px-4 py-2 bg-white">
+    <header className="flex justify-between items-center px-4 py-1 bg-white">
       <div className="flex space-x-2">
         {leftGroupButtons.map((button, index) => (
           <button

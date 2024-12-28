@@ -3,7 +3,7 @@ import { IconProps } from '../../types';
 
 export const AudioIcon: React.FC<IconProps> = ({
   color = 'currentColor',
-  strokeWidth = 2,
+  strokeWidth = 1,
   className = '',
 }) => {
   return (

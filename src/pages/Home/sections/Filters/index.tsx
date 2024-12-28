@@ -4,11 +4,17 @@ import { PlusIcon } from '../../../../components/Icons';
 type FilterButton = {
   ariaLabel: string;
   bgColor: string;
+  color?: string;
 } & ({ label: string; Icon?: never } | { Icon: React.FC; label?: never });
 
 export const Filters = () => {
   const filterButtons: FilterButton[] = [
-    { label: 'All', ariaLabel: 'view all', bgColor: '#DDEBFC' },
+    {
+      label: 'All',
+      ariaLabel: 'view all',
+      bgColor: '#DDEBFC',
+      color: '#153C60',
+    },
     {
       label: 'Unread',
       ariaLabel: 'filter by unread messages',
@@ -28,7 +34,7 @@ export const Filters = () => {
         <button
           key={index}
           aria-label={button.ariaLabel}
-          className={`px-3 py-1 rounded-full bg-[${button.bgColor}]`}
+          className={`px-3 py-1 rounded-full bg-[${button.bgColor}] ${button.color ? `text-[${button.color}]` : 'inherit'}`}
         >
           {button.Icon ? <button.Icon /> : button.label}
         </button>
