@@ -9,7 +9,7 @@ type ButtonProps = {
   color?: string;
 };
 
-export const Header = () => {
+export const Navigation = () => {
   const leftGroupButtons: ButtonProps[] = [
     {
       Icon: DotsIcon,

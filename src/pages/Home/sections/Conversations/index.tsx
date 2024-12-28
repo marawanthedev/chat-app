@@ -3,7 +3,7 @@ import { Conversation } from '../../../../types';
 import { TextMessage, AudioMessage, PhotoMessage } from './components';
 import { format } from 'date-fns';
 
-export const ChatList = ({
+export const Conversations = ({
   conversations,
 }: {
   conversations?: Conversation[];

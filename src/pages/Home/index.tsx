@@ -1,7 +1,13 @@
 // Home.tsx
 import React from 'react';
 import { Layout } from '../../components';
-import { ChatList, Filters, FloatingFooter, Header, Search } from './sections';
+import {
+  Conversations,
+  Filters,
+  FloatingFooter,
+  Navigation,
+  SearchBar,
+} from './sections';
 import { useFetchData } from '../../hooks';
 import { ConversationListResponse } from '../../types';
 const Home = () => {
@@ -17,13 +23,13 @@ const Home = () => {
     <Layout>
       <div className="flex flex-col min-h-screen bg-gray-100">
         {/* Header */}
-        <Header />
+        <Navigation />
         {/* Search */}
-        <Search />
+        <SearchBar />
         {/* Filters */}
         <Filters />
         {/* Chat List */}
-        <ChatList conversations={data?.conversations} />
+        <Conversations conversations={data?.conversations} />
         {/* Footer Navigation */}
         <FloatingFooter />
       </div>

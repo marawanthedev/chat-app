@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchIcon } from '../../../../components/Icons';
 
-export const Search = () => {
+export const SearchBar = () => {
   return (
     <div className="px-4 py-2">
       <div className="text-[32px] font-bold mb-2">Chats</div>
