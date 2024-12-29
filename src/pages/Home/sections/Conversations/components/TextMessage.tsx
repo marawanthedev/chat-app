@@ -9,7 +9,7 @@ type TextMessageProps = Omit<
 
 export const TextMessage = ({ text, delivered, read }: TextMessageProps) => {
   return (
-    <div className="flex gap-x-1 items-center">
+    <div role="listitem" className="flex gap-x-1 items-center">
       <MessageStatus delivered={delivered} read={read} />
       <span aria-label="message content">{text.message}</span>
     </div>

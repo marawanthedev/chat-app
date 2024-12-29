@@ -10,17 +10,16 @@ export const Conversations = ({
   conversations?: Conversation[];
 }) => {
   return (
-    <div className="px-4 pb-14 flex-1 overflow-y-scroll">
+    <div className="px-4 pb-14 flex-1 overflow-y-scroll" role="list">
       {conversations?.map((conversation, index) => {
+        const avatarIndex = (index % 5) + 1;
+        const avatarSrc = `src/assets/UserAvatar/user-${avatarIndex}.png`;
         const { delivered, lastMessageAt, name, read, type, audio, text } =
           conversation;
         const formattedLastMessageAt = format(
           new Date(lastMessageAt),
           'MM/dd/yy',
         );
-
-        const avatarIndex = (index % 5) + 1;
-        const avatarSrc = `src/assets/UserAvatar/user-${avatarIndex}.png`;
 
         return (
           <Link

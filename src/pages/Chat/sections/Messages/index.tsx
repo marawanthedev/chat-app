@@ -35,7 +35,6 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
       {messages.map((message: ChatMessage) => {
         const { delivered, read, sentAt, sentBy, type, photo, text } = message;
         const formattedTime = format(new Date(sentAt), 'HH:mm');
-        console.log(message.sentBy);
 
         return (
           <div

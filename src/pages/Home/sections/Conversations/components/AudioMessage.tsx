@@ -9,7 +9,7 @@ type AudioMessageProps = Omit<
 
 export const AudioMessage = ({ audio, read }: AudioMessageProps) => {
   return (
-    <div className="flex items-center gap-x-1">
+    <div role="listitem" className="flex items-center gap-x-1">
       <span aria-hidden={true}>
         <VoiceRecordIcon
           strokeWidth={1}

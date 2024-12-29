@@ -34,7 +34,7 @@ export const Navigation = () => {
 
   return (
     <header className="flex justify-between items-center px-4 py-1 bg-white">
-      <div className="flex space-x-2">
+      <div className="flex space-x-2" role="list">
         {leftGroupButtons.map((button, index) => (
           <button
             key={index}
@@ -46,7 +46,7 @@ export const Navigation = () => {
         ))}
       </div>
 
-      <div className="flex space-x-2">
+      <div className="flex space-x-2" role="list">
         {rightGroupButtons.map((button, index) => (
           <button
             key={index}

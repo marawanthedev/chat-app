@@ -29,7 +29,10 @@ export const Filters = () => {
   ];
 
   return (
-    <div className="flex justify-between px-4 py-2 text-sm font-semibold text-gray-600">
+    <div
+      className="flex justify-between px-4 py-2 text-sm font-semibold text-gray-600"
+      role="list"
+    >
       {filterButtons.map((button, index) => (
         <button
           key={index}

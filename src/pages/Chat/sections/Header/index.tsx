@@ -23,9 +23,13 @@ export const HeaderSection = ({ contact }: { contact?: ChatContact }) => {
     <div
       className={`flex items-center justify-between fixed top-0 w-full p-3 bg-white shadow-md rounded-t-lg h-[70px] `}
     >
-      <div className="cursor-pointer" onClick={() => navigate(-1)}>
+      <button
+        className="cursor-pointer"
+        role="button"
+        onClick={() => navigate(-1)}
+      >
         <BackIcon color="#007AFF" />
-      </div>
+      </button>
       <div className="flex items-center space-x-3">
         <div
           className="w-10 h-10 rounded-full bg-gray-300 bg-cover bg-center"
@@ -37,10 +41,10 @@ export const HeaderSection = ({ contact }: { contact?: ChatContact }) => {
         </div>
       </div>
       <div className="flex items-center space-x-3">
-        <button className="text-blue-500">
+        <button className="text-blue-500" aria-label="Video Call">
           <VideoIcon />
         </button>
-        <button className="text-blue-500">
+        <button className="text-blue-500" aria-label="Phone Call">
           <PhoneIcon />
         </button>
       </div>

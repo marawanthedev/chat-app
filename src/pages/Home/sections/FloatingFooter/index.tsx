@@ -22,6 +22,7 @@ const FloatingFooterActionButton = ({
 }) => {
   return (
     <button
+      role="button"
       className={`text-gray-500 flex flex-col justify-between items-center ${className}`}
       aria-label={ariaLabel}
     >
