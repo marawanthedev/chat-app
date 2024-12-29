@@ -19,7 +19,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Layout for other devices */}
-      <div className="hidden sm:block lg:block xl:block w-full max-w-[414px] sm:max-w-[768px] lg:max-w-[1024px] xl:w-[1000px] h-full p-4 rounded-lg shadow-lg overflow-x-hidden">
+      <div className="hidden sm:block lg:block xl:block w-full max-w-[410px]  h-full p-4 rounded-lg shadow-lg overflow-x-hidden">
         {children}
       </div>
     </div>

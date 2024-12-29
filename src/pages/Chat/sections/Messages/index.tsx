@@ -9,7 +9,7 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
     return (
       <div
         aria-label="messages are yet to be loading"
-        className="flex-1 flex items-center justify-center overflow-y-auto bg-cover p-4 space-y-3 bg-[url('src/assets/wa-bg.png')]"
+        className="max-w-[410px] flex-1 flex items-center justify-center overflow-y-auto bg-cover p-4 space-y-3 bg-[url('src/assets/wa-bg.png')]"
       >
         <Loader />
       </div>
@@ -20,7 +20,7 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
     return (
       <div
         aria-label="no messages"
-        className="flex justify-center items-center overflow-y-auto bg-cover p-4 space-y-3 w-full h-full"
+        className="max-w-[410px] flex justify-center items-center overflow-y-auto bg-cover p-4 space-y-3 w-full h-full"
       >
         No Messages yet.
       </div>
@@ -49,7 +49,7 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
   });
 
   return (
-    <div className="flex-1 overflow-scroll bg-cover p-4 space-y-3 my-[70px] bg-[url('/src/assets/wa-bg.png')]">
+    <div className="max-w-[410px] flex-1 overflow-y-auto w-full bg-cover p-4 space-y-3 my-[50px] bg-[url('/src/assets/wa-bg.png')]">
       {groupedMessages.map(({ date, messages }) => (
         <div key={date}>
           <p className="text-center text-xs text-gray-500 my-2">{date}</p>
