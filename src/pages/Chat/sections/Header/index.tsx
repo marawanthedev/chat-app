@@ -9,7 +9,7 @@ export const HeaderSection = ({ contact }: { contact?: ChatContact }) => {
 
   if (!contact) {
     return (
-      <div className="flex items-center justify-center p-3 bg-white shadow-md rounded-t-lg max-w-[410px]">
+      <div className="flex items-center justify-center p-3 bg-white shadow-md rounded-t-lg max-w-[800px]">
         <Loader width="2rem" height="2rem" />
       </div>
     );
@@ -21,7 +21,7 @@ export const HeaderSection = ({ contact }: { contact?: ChatContact }) => {
 
   return (
     <div
-      className={`flex items-center justify-between fixed top-0 w-full p-3 bg-white shadow-md rounded-t-lg h-[50px] max-w-[410px] `}
+      className={`flex items-center justify-between fixed top-0 w-full p-3 bg-white shadow-md rounded-t-lg h-[50px] max-w-[800px] `}
     >
       <button
         className="cursor-pointer"

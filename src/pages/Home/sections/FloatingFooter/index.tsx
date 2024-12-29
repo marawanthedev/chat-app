@@ -68,7 +68,7 @@ export const FloatingFooter = () => {
       className={`flex justify-center items-center py-2 bg-white shadow w-screen  fixed bottom-0 left-0 border-t border-gray-300  ${zIndex.floatingActionButton} px-4 overflow-x-hidden `}
     >
       <div
-        className={`flex justify-between items-center w-full max-w-[410px] max-w-[1280px]`}
+        className={`flex justify-between items-center w-full max-w-[800px] max-w-[1280px]`}
       >
         {buttons.map((button, index) => (
           <FloatingFooterActionButton
