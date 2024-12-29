@@ -8,6 +8,16 @@ import {
 // NOTE
 // We could also add Sentry to log errors to our dashboard. It helps in catching errors in production that are not reproducible in development.
 
+/**
+ * Error fallback component to display when an error is caught by the ErrorBoundary.
+ * 
+ * @param error - The error object caught by the ErrorBoundary.
+ * 
+ * @remarks
+ * - Handles unhandled errors and promise rejections globally using `window` event listeners.
+ * - Allows resetting the error boundary to attempt rendering the children again.
+ */
+
 const ErrorFallback: React.FC<FallbackProps> = ({ error }) => {
   const { resetBoundary, showBoundary } = useErrorBoundary();
 

@@ -5,6 +5,17 @@ interface LoaderProps {
   height?: string;
 }
 
+/**
+ * A customizable loading spinner component.
+ * 
+ * @param width - The width of the loader container (optional).
+ * @param height - The height of the loader container (optional).
+ * 
+ * @remarks
+ * - Combines a spinning circle and a pulsing background animation to indicate loading state.
+ * - Default styles are responsive and visually centered.
+ */
+
 export const Loader = ({ width, height }: LoaderProps) => {
   return (
     <div
