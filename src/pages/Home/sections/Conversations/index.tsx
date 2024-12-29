@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Conversation } from '../../../../types';
 import { TextMessage, AudioMessage, PhotoMessage } from './components';
 import { format } from 'date-fns';
@@ -9,6 +9,16 @@ export const Conversations = ({
 }: {
   conversations?: Conversation[];
 }) => {
+  const [liveRegionContent, setLiveRegionContent] = useState('');
+
+  const handleFocusOrHover = (name: string) => {
+    setLiveRegionContent(`Chat with ${name}`);
+  };
+
+  const handleBlurOrLeave = () => {
+    setLiveRegionContent('');
+  };
+
   return (
     <div className="px-4 pb-14 flex-1 overflow-y-scroll" role="list">
       {conversations?.map((conversation, index) => {
@@ -21,11 +31,19 @@ export const Conversations = ({
           'MM/dd/yy',
         );
 
+        const descriptionId = `${name.replace(/\s+/g, '-').toLowerCase()}-description`;
+
         return (
           <Link
             to="/conversation"
             key={index}
             className="flex items-start justify-between py-1.5 cursor-pointer"
+            onFocus={() => handleFocusOrHover(name)}
+            onMouseEnter={() => handleFocusOrHover(name)}
+            onBlur={handleBlurOrLeave}
+            onMouseLeave={handleBlurOrLeave}
+            aria-labelledby={descriptionId}
+            role="listitem"
           >
             <div className="flex items-start space-x-3">
               <div
@@ -33,7 +51,9 @@ export const Conversations = ({
                 style={{ backgroundImage: `url(${avatarSrc})` }}
               />
               <div>
-                <p className="font-medium">{name}</p>
+                <p id={descriptionId} className="font-medium">
+                  {name}
+                </p>
                 {type === 'text' && (
                   <TextMessage text={text} read={read} delivered={delivered} />
                 )}
@@ -47,6 +67,16 @@ export const Conversations = ({
           </Link>
         );
       })}
+
+      {/* Live region for screen reader announcements */}
+      <div
+        aria-live="polite"
+        role="region"
+        className="sr-only"
+        aria-atomic="true"
+      >
+        {liveRegionContent}
+      </div>
     </div>
   );
 };
