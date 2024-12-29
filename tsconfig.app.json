@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react", // or "react-jsx" if you're using React 17 or later
     "baseUrl": ".",
     "module": "ES2020", // or "ESNext" or "NodeNext"
     "target": "ES2020", // or you can target a newer version like ESNext
@@ -11,7 +12,8 @@
     "rootDir": "./src",
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/utils/index.tsx"
   ],
   "exclude": [
     "node_modules"

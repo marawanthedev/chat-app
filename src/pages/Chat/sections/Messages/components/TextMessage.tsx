@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChatMessage } from '../../../../../types';
 import { MessageStatus } from '../../../../../components';
+import { Emoji, EmojiRenderer } from '../../../../../utils/emojiMapper';
 
 type TextMessageProps = Omit<
   Extract<ChatMessage, { type: 'text' }>,
@@ -23,8 +24,17 @@ export const TextMessage = ({
       aria-labelledby="text-message"
       style={{ backgroundColor: `${color}` }}
     >
-      <span id="text-message" className="text-base" aria-live="polite">
-        {text}
+      <span
+        id="text-message"
+        className="text-base flex items-end "
+        aria-live="polite"
+      >
+        <span>{text}</span>
+        {read && (
+          <span>
+            <EmojiRenderer className="h-6 w-6" emoji={Emoji.CoolFace} />
+          </span>
+        )}
       </span>
       <div className="flex items-center gap-x-2">
         <span

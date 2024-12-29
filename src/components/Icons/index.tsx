@@ -2,7 +2,6 @@ export * from './Audio';
 export * from './Dot';
 export * from './Camera';
 export * from './Chat';
-export * from './CoolEmoji';
 export * from './File';
 export * from './Phone';
 export * from './Plus';
