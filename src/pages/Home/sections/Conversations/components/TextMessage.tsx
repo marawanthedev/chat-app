@@ -1,6 +1,6 @@
 import React from 'react';
 import { Conversation } from '../../../../../types';
-import { DoubleCheckIcon } from '../../../../../components/Icons';
+import { MessageStatus } from '../../../../../components';
 
 type TextMessageProps = Omit<
   Extract<Conversation, { type: 'text' }>,
@@ -10,11 +10,7 @@ type TextMessageProps = Omit<
 export const TextMessage = ({ text, delivered, read }: TextMessageProps) => {
   return (
     <div className="flex gap-x-1 items-center">
-      {delivered && (
-        <span aria-label={read ? 'Read' : 'Delivered'}>
-          <DoubleCheckIcon color={read ? '#3497F9' : 'currentColor'} />
-        </span>
-      )}
+      <MessageStatus delivered={delivered} read={read} />
       <span aria-label="message content">{text.message}</span>
     </div>
   );

@@ -1,7 +1,8 @@
 import React from 'react';
 import { ChatMessage } from '../../../../../types';
-import { DoubleCheckIcon, FileIcon } from '../../../../../components/Icons';
+import { FileIcon } from '../../../../../components/Icons';
 import chroma from 'chroma-js';
+import { MessageStatus } from '../../../../../components';
 
 type PhotoMessageProps = Omit<
   Extract<ChatMessage, { type: 'photo' }>,
@@ -44,18 +45,7 @@ export const PhotoMessage = ({
         </div>
         <div className="flex items-center gap-x-2 ">
           <span>{sentAt}</span>
-          {delivered && (
-            <span
-              aria-label={read ? 'Read' : 'Delivered'}
-              role="img"
-              aria-live="polite"
-            >
-              <DoubleCheckIcon
-                color={read ? '#3497F9' : 'currentColor'}
-                aria-hidden="true"
-              />
-            </span>
-          )}
+          <MessageStatus delivered={delivered} read={read} />
         </div>
       </div>
     </div>

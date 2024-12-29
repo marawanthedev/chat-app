@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChatMessage } from '../../../../../types';
-import { DoubleCheckIcon } from '../../../../../components/Icons';
+import { MessageStatus } from '../../../../../components';
 
 type TextMessageProps = Omit<
   Extract<ChatMessage, { type: 'text' }>,
@@ -16,7 +16,6 @@ export const TextMessage = ({
   read,
   color,
 }: TextMessageProps) => {
-  console.log({ color });
   return (
     <div
       className={`flex gap-x-4 p-2 border-box justify-between items-end rounded`}
@@ -34,18 +33,7 @@ export const TextMessage = ({
         >
           {sentAt}
         </span>
-        {delivered && (
-          <span
-            aria-label={read ? 'Read' : 'Delivered'}
-            role="img"
-            aria-live="polite"
-          >
-            <DoubleCheckIcon
-              color={read ? '#3497F9' : 'currentColor'}
-              aria-hidden="true"
-            />
-          </span>
-        )}
+        <MessageStatus delivered={delivered} read={read} />
       </div>
     </div>
   );

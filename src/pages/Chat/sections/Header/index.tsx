@@ -29,7 +29,7 @@ export const HeaderSection = ({ contact }: { contact?: ChatContact }) => {
       <div className="flex items-center space-x-3">
         <div
           className="w-10 h-10 rounded-full bg-gray-300 bg-cover bg-center"
-          style={{ backgroundImage: `url(assets/UserAvatar/user-5.png)` }}
+          style={{ backgroundImage: `url(src/assets/UserAvatar/user-5.png)` }}
         />
         <div>
           <p className="font-medium">{contact.name}</p>
