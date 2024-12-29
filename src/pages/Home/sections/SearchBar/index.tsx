@@ -1,7 +1,11 @@
 import React from 'react';
 import { SearchIcon } from '../../../../components/Icons';
 
-export const SearchBar = () => {
+export const SearchBar = ({
+  onSearch,
+}: {
+  onSearch: (content: string) => void;
+}) => {
   return (
     <div className="px-4 py-2">
       <div className="text-[32px] font-bold mb-2">Chats</div>
@@ -12,6 +16,9 @@ export const SearchBar = () => {
           placeholder="Search"
           aria-label="Search chats"
           className="w-full py-2 pl-2 bg-gray-200 rounded-lg placeholder-black placeholder:text-base placeholder:font-semibold"
+          onChange={(e) => {
+            onSearch(e.target.value);
+          }}
         />
       </div>
     </div>
