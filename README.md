@@ -8,7 +8,7 @@ This project is a messaging application built using React, TypeScript, Tailwind 
 - git clone https://github.com/marawanthedev/chat-app.git
 - cd chat-app
 - npm install
-- npm start
+- npm run dev
 
 # Linting
 - npm run lint
