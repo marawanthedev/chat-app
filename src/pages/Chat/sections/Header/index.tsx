@@ -32,7 +32,8 @@ export const HeaderSection = ({ contact }: { contact?: ChatContact }) => {
       </button>
       <div className="flex items-center space-x-3">
         <div
-          className="w-10 h-10 rounded-full bg-gray-300 bg-cover bg-center"
+          className="w-10 h-10 rounded-full bg-gray-300 bg-cover bg-center 
+             sm:w-12 sm:h-12 md:w-14 md:h-14  "
           style={{ backgroundImage: `url(src/assets/UserAvatar/user-5.png)` }}
         />
         <div>
