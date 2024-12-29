@@ -10,9 +10,9 @@ import {
 
 /**
  * Error fallback component to display when an error is caught by the ErrorBoundary.
- * 
+ *
  * @param error - The error object caught by the ErrorBoundary.
- * 
+ *
  * @remarks
  * - Handles unhandled errors and promise rejections globally using `window` event listeners.
  * - Allows resetting the error boundary to attempt rendering the children again.

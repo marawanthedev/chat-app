@@ -5,11 +5,11 @@ interface LayoutProps {
 }
 
 /**
- * A responsive layout component for rendering children with adaptive designs 
- * based on screen size. 
- * 
+ * A responsive layout component for rendering children with adaptive designs
+ * based on screen size.
+ *
  * @param children - The child elements to render within the layout.
- * 
+ *
  * @remarks
  * - Provides a distinct layout for smaller devices (e.g., iPhone SE) and larger screens.
  * - Uses responsive utility classes from Tailwind CSS to adjust visibility and styling.
