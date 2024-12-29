@@ -7,7 +7,10 @@ import { Loader } from '../../../../components';
 export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
   if (!messages) {
     return (
-      <div aria-label='messages are yet to be loading' className="flex-1 flex items-center justify center overflow-y-auto bg-cover p-4 space-y-3  bg-[url('src/assets/wa-bg.png')]">
+      <div
+        aria-label="messages are yet to be loading"
+        className="flex-1 flex items-center justify center overflow-y-auto bg-cover p-4 space-y-3  bg-[url('src/assets/wa-bg.png')]"
+      >
         <Loader />
       </div>
     );
@@ -15,7 +18,10 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
 
   if (messages.length === 0) {
     return (
-      <div aria-label='no messages' className="flex justify-center items-center overflow-y-auto bg-cover p-4 space-y-3 w-full h-full">
+      <div
+        aria-label="no messages"
+        className="flex justify-center items-center overflow-y-auto bg-cover p-4 space-y-3 w-full h-full"
+      >
         No Messages yet.
       </div>
     );
@@ -29,7 +35,7 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
       {messages.map((message: ChatMessage) => {
         const { delivered, read, sentAt, sentBy, type, photo, text } = message;
         const formattedTime = format(new Date(sentAt), 'HH:mm');
-        console.log(message.sentBy)
+        console.log(message.sentBy);
 
         return (
           <div

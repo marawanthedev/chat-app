@@ -16,7 +16,7 @@ export const TextMessage = ({
   read,
   color,
 }: TextMessageProps) => {
-  console.log({ color })
+  console.log({ color });
   return (
     <div
       className={`flex gap-x-4 p-2 border-box justify-between items-end rounded`}
