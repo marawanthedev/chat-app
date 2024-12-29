@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { ErrorBoundary } from './components';
 import { LoadingScreen } from './pages';
 import './transitions.css';
+import NotFoundPage from './pages/NotFound';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Chat = React.lazy(() => import('./pages/Chat'));
@@ -42,8 +43,8 @@ function AnimatedRoutes() {
         {
           path: '/*',
           element: (
-            <React.Suspense fallback={<div>Loading...</div>}>
-              <div>not found</div>
+            <React.Suspense fallback={<LoadingScreen />}>
+              <NotFoundPage />
             </React.Suspense>
           ),
         },
