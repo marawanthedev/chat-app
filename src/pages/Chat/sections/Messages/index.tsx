@@ -9,7 +9,7 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
     return (
       <div
         aria-label="messages are yet to be loading"
-        className="flex-1 flex items-center justify center overflow-y-auto bg-cover p-4 space-y-3  bg-[url('src/assets/wa-bg.png')]"
+        className="flex-1 flex items-center justify-center overflow-y-auto bg-cover p-4 space-y-3 bg-[url('src/assets/wa-bg.png')]"
       >
         <Loader />
       </div>
@@ -27,41 +27,66 @@ export const MessagesSection = ({ messages }: { messages?: ChatMessage[] }) => {
     );
   }
 
+  // Sort messages by sentAt to ensure chronological order (O(n log n) time complexity)
+  const sortedMessages = [...messages].sort(
+    (a, b) => new Date(a.sentAt).getTime() - new Date(b.sentAt).getTime(),
+  );
+
+  // Group messages by day (O(n) time complexity)
+  const groupedMessages: { date: string; messages: ChatMessage[] }[] = [];
+
+  sortedMessages.forEach((message) => {
+    const formattedDate = format(new Date(message.sentAt), 'EEE, MMM d');
+    const existingGroup = groupedMessages.find(
+      (group) => group.date === formattedDate,
+    );
+
+    if (!existingGroup) {
+      groupedMessages.push({ date: formattedDate, messages: [message] });
+    } else {
+      existingGroup.messages.push(message);
+    }
+  });
+
   return (
-    <div className="flex-1 overflow-scroll bg-cover  p-4 space-y-3 my-[70px] bg-[url('/src/assets/wa-bg.png')]">
-      {/* only show when there is actual messages , this could be derived from earliest message, and we could group messages into day based and put a label on top of each one that includes date details */}
-      <p className="text-center text-xs text-gray-500">Fri, Jul 26</p>
+    <div className="flex-1 overflow-scroll bg-cover p-4 space-y-3 my-[70px] bg-[url('/src/assets/wa-bg.png')]">
+      {groupedMessages.map(({ date, messages }) => (
+        <div key={date}>
+          <p className="text-center text-xs text-gray-500 my-2">{date}</p>
 
-      {messages.map((message: ChatMessage) => {
-        const { delivered, read, sentAt, sentBy, type, photo, text } = message;
-        const formattedTime = format(new Date(sentAt), 'HH:mm');
+          {messages.map((message: ChatMessage) => {
+            const { delivered, read, sentAt, sentBy, type, photo, text } =
+              message;
+            const formattedTime = format(new Date(sentAt), 'HH:mm');
 
-        return (
-          <div
-            key={message.sentAt}
-            className={`flex ${sentBy === 'self' ? 'justify-end' : 'justify-start'} space-x-3`}
-          >
-            {type === 'text' && (
-              <TextMessage
-                text={text}
-                sentAt={formattedTime}
-                delivered={delivered}
-                read={read}
-                color={`${sentBy === 'self' ? '#DCF7C5' : '#FAFAFA'}`}
-              />
-            )}
-            {type === 'photo' && (
-              <PhotoMessage
-                delivered={delivered}
-                sentAt={formattedTime}
-                read={read}
-                photo={photo}
-                color={`${sentBy === 'self' ? '#DCF7C5' : '#FAFAFA'}`}
-              />
-            )}
-          </div>
-        );
-      })}
+            return (
+              <div
+                key={message.sentAt}
+                className={`flex ${sentBy === 'self' ? 'justify-end' : 'justify-start'} my-2`}
+              >
+                {type === 'text' && (
+                  <TextMessage
+                    text={text}
+                    sentAt={formattedTime}
+                    delivered={delivered}
+                    read={read}
+                    color={`${sentBy === 'self' ? '#DCF7C5' : '#FAFAFA'}`}
+                  />
+                )}
+                {type === 'photo' && (
+                  <PhotoMessage
+                    delivered={delivered}
+                    sentAt={formattedTime}
+                    read={read}
+                    photo={photo}
+                    color={`${sentBy === 'self' ? '#DCF7C5' : '#FAFAFA'}`}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 };
