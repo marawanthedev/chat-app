@@ -13,7 +13,8 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/utils/index.tsx"
+    "src/**/*.tsx",
+    "**/*.tsx"
   ],
   "exclude": [
     "node_modules"

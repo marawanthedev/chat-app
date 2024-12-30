@@ -3,21 +3,14 @@ import { Conversation } from '../../../../types';
 import { TextMessage, AudioMessage, PhotoMessage } from './components';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
+import { useScreenReaderSupporter } from '../../../../hooks';
 
 export const Conversations = ({
   conversations,
 }: {
   conversations?: Conversation[];
 }) => {
-  const [liveRegionContent, setLiveRegionContent] = useState('');
-
-  const handleFocusOrHover = (name: string) => {
-    setLiveRegionContent(`Chat with ${name}`);
-  };
-
-  const handleBlurOrLeave = () => {
-    setLiveRegionContent('');
-  };
+  const { handleBlurOrLeave, handleFocusOrHover } = useScreenReaderSupporter();
 
   return (
     <div className="px-4 pb-14 flex-1 overflow-y-scroll" role="list">
@@ -38,10 +31,10 @@ export const Conversations = ({
             to="/conversation"
             key={index}
             className="flex items-start justify-between py-1.5 cursor-pointer"
-            onFocus={() => handleFocusOrHover(name)}
-            onMouseEnter={() => handleFocusOrHover(name)}
-            onBlur={handleBlurOrLeave}
-            onMouseLeave={handleBlurOrLeave}
+            onFocus={() => handleFocusOrHover(`Chat with ${name}`)}
+            onMouseEnter={() => handleFocusOrHover(`Chat with ${name}`)}
+            onBlur={() => handleBlurOrLeave()}
+            onMouseLeave={() => handleBlurOrLeave()}
             aria-labelledby={descriptionId}
             role="listitem"
           >
@@ -68,15 +61,7 @@ export const Conversations = ({
         );
       })}
 
-      {/* Live region for screen reader announcements */}
-      <div
-        aria-live="polite"
-        role="region"
-        className="sr-only"
-        aria-atomic="true"
-      >
-        {liveRegionContent}
-      </div>
+      {/* <ScreenReaderSupporter liveRegionContent={liveRegionContent} /> */}
     </div>
   );
 };
